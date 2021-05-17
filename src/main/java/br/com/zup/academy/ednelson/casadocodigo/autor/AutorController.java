@@ -17,7 +17,7 @@ public class AutorController {
 	private AutorRepository autorRepository;
 
 	@PostMapping
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid AlunoForm form) {
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid AutorForm form) {
 		Autor autor = form.converter();
 		autorRepository.save(autor);
 		return ResponseEntity.ok().build();

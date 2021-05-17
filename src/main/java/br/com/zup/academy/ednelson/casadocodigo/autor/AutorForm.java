@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class AlunoForm {
+public class AutorForm {
 
 	@NotNull @NotBlank
 	private String nome;
