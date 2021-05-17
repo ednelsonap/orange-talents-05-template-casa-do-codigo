@@ -20,7 +20,6 @@ public class Autor {
 	private LocalDateTime dataDeCadastro = LocalDateTime.now();
 	
 	public Autor() {
-		
 	}
 	
 	public Autor(String nome, String email, String descricao) {
