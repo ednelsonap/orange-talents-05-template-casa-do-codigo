@@ -18,8 +18,11 @@ public class AutorController {
 
 	@PostMapping
 	public ResponseEntity<?> cadastrar(@RequestBody @Valid NovoAutorRequest novoAutorRequest) {
+		
 		Autor autor = novoAutorRequest.toModel();
 		autorRepository.save(autor);
+		
 		return ResponseEntity.ok().build();
+		
 	}
 }

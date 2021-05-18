@@ -10,6 +10,7 @@ public class NovoAutorRequest {
 	private String nome;
 	@NotBlank
 	@Email
+	@EmailUnico
 	private String email;
 	@NotBlank
 	@Size(max=400) 
@@ -18,6 +19,7 @@ public class NovoAutorRequest {
 	public NovoAutorRequest(@NotBlank String nome, @NotBlank @Email String email,
 			@NotBlank @Size(max = 400) String descricao) {
 		super();
+		
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
@@ -26,4 +28,5 @@ public class NovoAutorRequest {
 	public Autor toModel() {
 		return new Autor(this.nome, this.email, this.descricao);
 	}
+	
 }
