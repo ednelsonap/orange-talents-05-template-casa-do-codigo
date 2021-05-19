@@ -2,10 +2,12 @@ package br.com.zup.academy.ednelson.casadocodigo.categoria;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.zup.academy.ednelson.casadocodigo.validation.UniqueValue;
+
 public class NovaCategoriaRequest {
 	
 	@NotBlank
-	@NomeCategoriaUnico
+	@UniqueValue(entidade = Categoria.class, atributo = "nome")
 	private String nome;
 	
 	@Deprecated

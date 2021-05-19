@@ -1,4 +1,4 @@
-package br.com.zup.academy.ednelson.casadocodigo.autor;
+package br.com.zup.academy.ednelson.casadocodigo.validation;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -11,16 +11,21 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = EmailUnicoValidator.class)
+@Constraint(validatedBy = UniqueValueValidator.class)
 @Target(FIELD)
 @Retention(RUNTIME)
-public @interface EmailUnico {
-
-	String message() default "Email já cadastrado";
+public @interface UniqueValue {
+	
+	String message() default "{atributo} existente";
 	 
     Class<?>[] groups() default {};
  
     Class<? extends Payload>[] payload() default {};
  
     String value() default "";
+    
+    Class<?> entidade();
+
+	String atributo();
+    
 }

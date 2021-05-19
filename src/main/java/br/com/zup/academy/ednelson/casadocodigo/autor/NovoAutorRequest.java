@@ -4,13 +4,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zup.academy.ednelson.casadocodigo.validation.UniqueValue;
+
 public class NovoAutorRequest {
 
 	@NotBlank
 	private String nome;
 	@NotBlank
 	@Email
-	@EmailUnico
+	@UniqueValue(atributo = "email", entidade = Autor.class)
 	private String email;
 	@NotBlank
 	@Size(max=400) 
