@@ -78,8 +78,8 @@ public class NovoLivroRequest {
 	
 	public Livro toModel(EntityManager manager) {
 		
-		Categoria categoria = manager.find(Categoria.class, categoriaId);
-		Autor autor = manager.find(Autor.class, autorId);
+		@NotNull Categoria categoria = manager.find(Categoria.class, categoriaId);
+		@NotNull Autor autor = manager.find(Autor.class, autorId);
 
 		return new Livro(titulo, resumo, sumario, preco, numeroDePaginas, isbn, dataDePublicacao, categoria, autor);
 	}

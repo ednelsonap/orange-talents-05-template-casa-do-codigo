@@ -14,28 +14,24 @@ import javax.validation.constraints.Size;
 @Entity
 public class Autor {
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
 	private String nome;
 	@NotBlank
 	@Email
-	@Column(unique=true)
+	@Column(unique = true)
 	private String email;
 	@NotBlank
-	@Size(max=400)
+	@Size(max = 400)
 	private String descricao;
 	private LocalDateTime instanteCadastro = LocalDateTime.now();
-	
-	/*
-	 * @OneToMany(mappedBy = "autor") private List<Livro> livros = new
-	 * ArrayList<>();
-	 */
-	
+
 	@Deprecated
 	public Autor() {
 	}
-
+	
 	public Autor(@NotBlank String nome, @NotBlank @Email String email, @NotBlank @Size(max = 400) String descricao) {
 		super();
 		this.nome = nome;

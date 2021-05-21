@@ -1,6 +1,8 @@
 package br.com.zup.academy.ednelson.casadocodigo.livro;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/livro")
-public class LivroController {
+public class NovoLivroController {
 
-	@Autowired
+	@PersistenceContext
 	private EntityManager manager;
-	
-	@Autowired
-	private livroRepository livroRepository;
 
+	@Autowired
+	private LivroRepository livroRepository;
+	
 	@PostMapping
+	@Transactional
 	private String cadastrar(@RequestBody @Valid NovoLivroRequest request) {
 
 		Livro livro = request.toModel(manager);
