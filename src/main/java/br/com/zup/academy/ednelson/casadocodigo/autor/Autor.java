@@ -27,6 +27,11 @@ public class Autor {
 	private String descricao;
 	private LocalDateTime instanteCadastro = LocalDateTime.now();
 	
+	/*
+	 * @OneToMany(mappedBy = "autor") private List<Livro> livros = new
+	 * ArrayList<>();
+	 */
+	
 	@Deprecated
 	public Autor() {
 	}

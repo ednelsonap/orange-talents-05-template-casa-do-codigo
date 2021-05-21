@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 public class Categoria {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@NotBlank
 	@Column(unique=true)
 	private String nome;
@@ -21,6 +21,11 @@ public class Categoria {
 
 	public Categoria(@NotBlank String nome) {
 		this.nome = nome;
+	}
+
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nome=" + nome + "]";
 	}
 
 }
