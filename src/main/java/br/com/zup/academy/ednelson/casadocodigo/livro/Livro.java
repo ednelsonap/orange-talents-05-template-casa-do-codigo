@@ -111,6 +111,10 @@ public class Livro {
 	public String getIsbn() {
 		return isbn;
 	}
+	
+	public LocalDate getDataDePublicacao() {
+		return dataDePublicacao;
+	}
 
 	public Categoria getCategoria() {
 		return categoria;

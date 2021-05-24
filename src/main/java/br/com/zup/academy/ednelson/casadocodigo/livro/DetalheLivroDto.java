@@ -1,6 +1,9 @@
 package br.com.zup.academy.ednelson.casadocodigo.livro;
 
 import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
+
+import br.com.zup.academy.ednelson.casadocodigo.autor.DetalheAutorDto;
 
 public class DetalheLivroDto {
 
@@ -10,9 +13,8 @@ public class DetalheLivroDto {
 	private BigDecimal preco;
 	private Integer numeroDePaginas;
 	private String isbn;
-	private String nomeCategoria;
-	private String nomeAutor;
-	private String descricaoAutor;
+	private String dataDePublicacao;
+	private DetalheAutorDto autor;
 	
 	public DetalheLivroDto(Livro livro) {
 		this.titulo = livro.getTitulo();
@@ -21,9 +23,8 @@ public class DetalheLivroDto {
 		this.preco = livro.getPreco();
 		this.numeroDePaginas = livro.getNumeroDePaginas();
 		this.isbn = livro.getIsbn();
-		this.nomeCategoria = livro.getCategoria().getNome();
-		this.nomeAutor = livro.getAutor().getNome();
-		this.descricaoAutor = livro.getAutor().getDescricao();
+		this.dataDePublicacao = livro.getDataDePublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		this.autor = new DetalheAutorDto(livro.getAutor());
 	}
 
 	public String getTitulo() {
@@ -50,16 +51,12 @@ public class DetalheLivroDto {
 		return isbn;
 	}
 
-	public String getNomeCategoria() {
-		return nomeCategoria;
-	}
-
-	public String getNomeAutor() {
-		return nomeAutor;
-	}
-
-	public String getDescricaoAutor() {
-		return descricaoAutor;
+	public String getDataDePublicacao() {
+		return dataDePublicacao;
 	}
 	
+	public DetalheAutorDto getAutor() {
+		return autor;
+	}
+
 }

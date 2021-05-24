@@ -19,9 +19,7 @@ public class NovoAutorRequest {
 	private String descricao;
 
 	public NovoAutorRequest(@NotBlank String nome, @NotBlank @Email String email,
-			@NotBlank @Size(max = 400) String descricao) {
-		super();
-		
+			@NotBlank @Size(max = 400) String descricao) {	
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
