@@ -20,6 +20,7 @@ public class Pais {
 		this.nome = nome;
 	}
 	
+	@Deprecated
 	public Pais() {
 		
 	}

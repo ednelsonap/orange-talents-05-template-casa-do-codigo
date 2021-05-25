@@ -21,6 +21,7 @@ public class Estado {
 	@ManyToOne
 	private Pais pais;
 	
+	@Deprecated
 	public Estado() {
 		
 	}
@@ -40,6 +41,11 @@ public class Estado {
 	
 	public Pais getPais() {
 		return pais;
+	}
+
+	public void pertenceAPais(@NotNull Pais pais) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
